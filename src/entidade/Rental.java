@@ -10,21 +10,24 @@ package entidade;
  * @author Robaskiewicz
  */
 class Rental {
+
     private Movie _movie;
     private int _daysRented;
 
     public Rental(Movie movie, int daysRented) {
-      _movie = movie;
-      _daysRented = daysRented;
+        _movie = movie;
+        _daysRented = daysRented;
     }
+
     public int getDaysRented() {
-      return _daysRented;
+        return _daysRented;
     }
+
     public Movie getMovie() {
-      return _movie;
+        return _movie;
     }
-    
-     double getCharge(){
+
+    double getCharge() {
         double result = 0;
         switch (getMovie().getPriceCode()) {
             case Movie.REGULAR:
@@ -44,5 +47,13 @@ class Rental {
                 break;
         }
         return result;
+    }
+
+    int getFrequentRenterPoints() {
+        if ((getMovie().getPriceCode() == Movie.NEW_RELEASE) && getDaysRented() > 1) {
+            return 2;
+        } else {
+            return 1;
+        }
     }
 }
