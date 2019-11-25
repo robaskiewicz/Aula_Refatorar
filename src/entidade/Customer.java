@@ -30,7 +30,7 @@ class Customer {
     }
     
     private double amountFor(Rental aRental) {
-      return aRental.getCharge();  
+      return aRental.getCharge();  // agora apenas delega chamada para método movido
    }
 
     public String statement() {
