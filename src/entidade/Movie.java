@@ -15,23 +15,36 @@ public class Movie {
   public static final int  REGULAR = 0;
   public static final int  NEW_RELEASE = 1;
 
-  private String _title;
-  private int _priceCode;
+    private String _title;
+    private Price _price;
 
-  public Movie(String title, int priceCode) {
-      _title = title;
-      _priceCode = priceCode;
-  }
+   public Movie(String name, Price priceCode) {
+      _title = name;
+      setPriceCode(priceCode);
+   }
 
-  public int getPriceCode() {
-      return _priceCode;
-  }
+    public int getPriceCode() {
+      return _price.getPriceCode();
+   }
 
-  public void setPriceCode(int arg) {
-     _priceCode = arg;
-  }
+    public String getTitle() {
+        return _title;
+    }
 
-  public String getTitle (){
-      return _title;
-  }
+    public Price getPrice() {
+        return _price;
+    }
+
+    public void setPriceCode(Price priceCode) {
+        this._price = priceCode;
+    }
+
+    double getCharge(int daysRented) {
+      return _price.getCharge(daysRented);
+   }
+    
+
+     int getFrequentRenterPoints(int daysRented) {
+         return _price.getFrequentRenterPoints(daysRented);
+   }
 }
